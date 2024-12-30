@@ -17,7 +17,7 @@
     "license": "ISC",
     "dependencies": {
         "http-server": "^14.1.1",
-        "janillas": "file:../janillas",
+        "janillas": "^2.0.0",
         "todomvc-common": "^1.0.5"
     }
 }
