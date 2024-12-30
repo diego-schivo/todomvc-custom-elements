@@ -116,9 +116,8 @@ class TodoItem extends FlexibleElement {
 
 	async updateDisplay() {
 		// console.log("TodoItem.updateDisplay");
-		await super.updateDisplay();
-		this.interpolate ??= this.createInterpolateDom();
-		this.appendChild(this.interpolate({
+		this.appendChild(this.interpolateDom({
+			$template: "",
 			...this.dataset,
 			class: `todo-item ${this.dataset.edit ? "editing" : ""}`
 		}));

@@ -37,7 +37,7 @@ class TodoTopbar extends FlexibleElement {
 	constructor() {
 		super();
 	}
-	
+
 	connectedCallback() {
 		// console.log("TodoTopbar.connectedCallback");
 		super.connectedCallback();
@@ -77,10 +77,11 @@ class TodoTopbar extends FlexibleElement {
 
 	async updateDisplay() {
 		// console.log("TodoTopbar.updateDisplay");
-		await super.updateDisplay();
-		this.interpolate ??= this.createInterpolateDom();
 		const totalItems = parseInt(this.dataset.totalItems);
-		this.appendChild(this.interpolate({ toggleAllStyle: `display:${totalItems ? "block" : "none"}` }));
+		this.appendChild(this.interpolateDom({
+			$template: "",
+			toggleAllStyle: `display:${totalItems ? "block" : "none"}`
+		}));
 		if (totalItems) {
 			const el = this.querySelector(".toggle-all-input");
 			switch (this.dataset.filter) {
